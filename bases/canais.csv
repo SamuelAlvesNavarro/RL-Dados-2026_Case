@@ -1,0 +1,5 @@
+"id_canal","nome_canal","tipo_canal","status_canal"
+"1","URA","Autosservico","ativo"
+"2","CHATBOT","Autosservico","ativo"
+"3","ATENDIMENTO INICIAL","Humano","ativo"
+"4","ATENDIMENTO ESPECIALIZADO","Humano","ativo"
