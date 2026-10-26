@@ -1,38 +1,39 @@
 # Documentação do Pipeline: Bronze e Silver (V-Credit)
 
-Este documento reúne todo o racional, as regras de negócio aplicadas e o guia passo a passo da documentação utilizada nos notebooks de ingestão e tratamento do Case V-Credit.
+Este documento reúne todo o racional, as regras de negócio aplicadas e o guia passo a passo da documentação utilizada nos notebooks de ingestão e tratamento do Case V-Credit, padronizado conforme o padrão de engenharia definido em `Landing_to_Bronze`.
 
 ---
 
-## 1. Notebook: `01_Ingestao_Bronze_VCredit`
+## 1. Setup do Ambiente e Ingestão Bronze
 
-### Contexto e Objetivo
-Configurar o ambiente analítico no Databricks e realizar a ingestão inicial dos dados brutos das bases cadastrais/dimensionais da operação:
-- `base_atendentes.csv`
-- `base_motivos.csv`
+### Contexto e Padrão Adotado
+Configurar o ambiente analítico no Databricks e realizar a ingestão inicial dos dados brutos diretamente do Volume:
+- **Catálogo:** `vcredit`
+- **Schemas:** `vcredit.bronze`, `vcredit.silver`, `vcredit.gold`
+- **Volume de Entrada:** `/Volumes/vcredit/bronze/Landing`
 
-### Passos Realizados:
+### Passos Realizados na Bronze:
 1. **Setup do Ambiente:**
-   - Criação com cláusula defensiva (`IF NOT EXISTS`) do catálogo (`vcredit_analytics`), dos schemas da arquitetura medalhão (`bronze`, `silver`, `gold`) e do volume Unity Catalog (`/Volumes/vcredit_analytics/bronze/inputs`).
+   - Criação defensiva (`IF NOT EXISTS`) do catálogo (`vcredit`), dos schemas da arquitetura medalhão e do Volume `Landing`.
 2. **Ingestão Raw:**
-   - Leitura com `inferSchema=False` e `header=True` para preservar o formato original e não corromper dados antes da hora.
+   - Leitura pura via `spark.read.csv(path, header=True, inferSchema=False)` preservando o formato original e sem inferência precoce de tipos.
    - Adição do metadado de auditoria `ingestion_datetime` (`current_timestamp()`).
 3. **Garantia de Idempotência:**
-   - Escrita em formato **Delta Lake** com `.mode("overwrite")` e `overwriteSchema="true"` em:
-     - `bronze.tb_atendentes`
-     - `bronze.tb_motivos`
-   - O job pode ser reexecutado múltiplas vezes sem inchar a base ou duplicar linhas.
+   - Escrita em formato **Delta Lake** com `.mode("overwrite")` e `.option("overwriteSchema", True)`:
+     - `vcredit.bronze.tb_atendentes`
+     - `vcredit.bronze.tb_motivos`
+   - O pipeline pode ser reexecutado múltiplas vezes sem inchar a base ou duplicar linhas.
 
 ---
 
 ## 2. Notebook: `02_Bronze_to_Silver_VCredit`
 
 ### Contexto e Objetivo
-Leitura da camada Bronze para aplicação de limpeza, tipagem estrita, saneamento de dados faltantes, padronizações e enriquecimento de negócio.
+Leitura da camada Bronze (`vcredit.bronze`) para aplicação de limpeza, tipagem estrita, saneamento de dados faltantes, padronizações e enriquecimento de negócio, gravando na Silver (`vcredit.silver`).
 
 ---
 
-### Tabela 1: Atendentes (`silver.tb_atendentes`)
+### Tabela 1: Atendentes (`vcredit.silver.tb_atendentes`)
 
 #### Diagnóstico da Base Bruta:
 - `id_atendente` veio em formato texto puro.
@@ -51,11 +52,11 @@ Leitura da camada Bronze para aplicação de limpeza, tipagem estrita, saneament
    - `data_admissao` convertida para `DateType` (`yyyy-MM-dd`).
    - `data_desligamento` tratada para `NULL` quando vazia/nula, e convertida para `DateType` quando preenchida.
 5. **Padronização de Status:** `initcap` para **`Ativo`** / **`Inativo`**.
-6. **Idempotência:** Gravação Delta Lake com `.mode("overwrite")`.
+6. **Idempotência:** Gravação Delta Lake com `.mode("overwrite")` e `.option("overwriteSchema", True)`.
 
 ---
 
-### Tabela 2: Motivos de Atendimento (`silver.tb_motivos`)
+### Tabela 2: Motivos de Atendimento (`vcredit.silver.tb_motivos`)
 
 #### Diagnóstico da Base Bruta:
 - `id_motivo` em formato texto.
@@ -74,17 +75,17 @@ Leitura da camada Bronze para aplicação de limpeza, tipagem estrita, saneament
    - `'Cartao'` $\rightarrow$ **`Cartão`**
    - `'Beneficios'` $\rightarrow$ **`Benefícios`**
 5. **Padronização da Criticidade:** Harmonizado estritamente para **`Alta`**, **`Média`** ou **`Baixa`**.
-6. **Idempotência:** Gravação Delta Lake com `.mode("overwrite")`.
+6. **Idempotência:** Gravação Delta Lake com `.mode("overwrite")` e `.option("overwriteSchema", True)`.
 
 ---
 
 ## 3. Resumo da Nomenclatura das Camadas
 
 - **Bronze:**
-  - `vcredit_analytics.bronze.tb_atendentes`
-  - `vcredit_analytics.bronze.tb_motivos`
+  - `vcredit.bronze.tb_atendentes`
+  - `vcredit.bronze.tb_motivos`
 - **Silver:**
-  - `vcredit_analytics.silver.tb_atendentes`
-  - `vcredit_analytics.silver.tb_motivos`
+  - `vcredit.silver.tb_atendentes`
+  - `vcredit.silver.tb_motivos`
 - **Gold (Próxima etapa):**
   - Onde serão geradas as dimensões com prefixo `dim_` (`dim_atendente`, `dim_motivo`) e fatos (`fct_chamados`) para os dashboards analíticos.
