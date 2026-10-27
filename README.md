@@ -1,1 +1,0 @@
-# Case - Iniciando a transformação digital no atendimento na V-Credit
