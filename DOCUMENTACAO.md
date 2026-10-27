@@ -79,7 +79,34 @@ Leitura da camada Bronze (`vcredit.bronze`) para aplicação de limpeza, tipagem
 
 ---
 
-## 3. Resumo da Nomenclatura das Camadas
+## 3. Notebook: `03_Silver_to_Gold_VCredit`
+
+### Contexto e Objetivo
+Transformação analítica da camada Silver para a modelagem dimensional (*Star Schema*) da camada Gold (`vcredit.gold`), preparando as tabelas dimensão para consumo no Power BI e cruzamento com a tabela fato de atendimentos.
+
+---
+
+### Tabela 1: Dimensão Atendente (`vcredit.gold.dim_atendente`)
+
+#### Regras de Negócio e Enriquecimento:
+- **Campos Selecionados:** `id_atendente`, `nome_atendente`, `nivel_atendimento`, `data_admissao`, `data_desligamento`, `status_atendente`.
+- **Cálculo da Métrica `tempo_empresa` (em dias):**
+  - Para colaboradores inativos (`data_desligamento IS NOT NULL`): `datediff(data_desligamento, data_admissao)`.
+  - Para colaboradores ativos (`data_desligamento IS NULL`): `datediff(current_date(), data_admissao)`.
+  - Tipagem convertida para `IntegerType()`.
+- **Idempotência:** Gravação em formato Delta Lake com `.mode("overwrite")` e `.option("overwriteSchema", True)`.
+
+---
+
+### Tabela 2: Dimensão Motivos (`vcredit.gold.dim_motivo`)
+
+#### Estrutura da Dimensão:
+- **Campos Selecionados:** `id_motivo`, `nome_motivo`, `categoria`, `criticidade`.
+- **Idempotência:** Gravação em formato Delta Lake com `.mode("overwrite")` e `.option("overwriteSchema", True)`.
+
+---
+
+## 4. Resumo da Nomenclatura das Camadas
 
 - **Bronze:**
   - `vcredit.bronze.tb_atendentes`
@@ -87,5 +114,8 @@ Leitura da camada Bronze (`vcredit.bronze`) para aplicação de limpeza, tipagem
 - **Silver:**
   - `vcredit.silver.tb_atendentes`
   - `vcredit.silver.tb_motivos`
-- **Gold (Próxima etapa):**
-  - Onde serão geradas as dimensões com prefixo `dim_` (`dim_atendente`, `dim_motivo`) e fatos (`fct_chamados`) para os dashboards analíticos.
+- **Gold:**
+  - `vcredit.gold.dim_atendente`
+  - `vcredit.gold.dim_motivo`
+  - *(Integrada no Power BI com as demais dimensões `dim_cliente`, `dim_canal`, `dim_data` e a tabela `fato`)*.
+
