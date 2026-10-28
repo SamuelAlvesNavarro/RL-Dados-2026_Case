@@ -1,0 +1,15 @@
+﻿categoria,nome_motivo,criticidade,volume,custo_total,custo_medio,csat_pct,resolucao_pct
+Atendimento,Problema com aplicativo,Média,14333,208364.48,14.72,61.31,0.0
+Cartão,Compra não autorizada,Alta,12991,206148.75,16.09,60.49,0.0
+Financeiro,Renegociação de dívida,Alta,12377,203306.06,16.70,57.43,0.0
+Financeiro,Contestação de fatura,Alta,11139,159446.10,14.52,63.5,0.0
+Financeiro,Consulta de fatura,Baixa,16684,114378.91,6.96,81.19,0.0
+Cartão,Bloqueio de cartão,Alta,13128,99498.87,7.67,80.71,0.0
+Financeiro,Consulta de limite,Baixa,13906,99155.46,7.23,81.34,0.0
+Financeiro,Cancelamento de conta,Alta,5914,92569.33,15.82,59.9,0.0
+Cartão,Desbloqueio de cartão,Alta,8810,70718.65,8.15,78.98,0.0
+Cartão,Contratação de cartão adicional,Média,4894,49771.88,10.31,74.68,0.0
+Benefícios,Dúvidas gerais sobre programa de pontos,Baixa,4979,47683.52,9.71,74.25,0.0
+Financeiro,Consulta de contrato,Média,5540,47572.95,8.73,77.63,0.0
+Cadastral,"Alteração de dados cadastrais (vencimento da fatura, telefone, email)",Baixa,4669,28355.49,6.15,84.68,0.0
+Cadastral,Transferência de agência,Média,2474,23647.40,9.70,74.66,0.0

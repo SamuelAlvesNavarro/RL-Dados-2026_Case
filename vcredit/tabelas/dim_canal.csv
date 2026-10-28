@@ -1,0 +1,5 @@
+﻿id_canal,nome_canal,tipo_canal,status_canal
+2,Chatbot,autosservico,ativo
+4,Atendimento Especializado,humano,ativo
+3,Atendimento Inicial,humano,ativo
+1,URA,autosservico,ativo

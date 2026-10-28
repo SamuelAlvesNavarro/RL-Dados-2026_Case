@@ -1,0 +1,57 @@
+﻿nome_motivo,nome_canal,volume,custo_medio,csat_pct
+Compra não autorizada,Atendimento Especializado,2803,49.04,36.2
+Renegociação de dívida,Chatbot,2373,0.58,75.99
+Consulta de limite,Atendimento Especializado,831,48.95,36.76
+Contratação de cartão adicional,URA,1515,1.87,84.23
+Contratação de cartão adicional,Chatbot,1310,0.59,86.08
+Bloqueio de cartão,Atendimento Inicial,3430,13.63,68.82
+Compra não autorizada,Atendimento Inicial,4750,13.76,55.0
+Cancelamento de conta,URA,1334,1.82,78.71
+Contestação de fatura,Chatbot,2335,0.58,78.65
+Consulta de limite,Atendimento Inicial,3501,13.70,68.9
+Desbloqueio de cartão,Atendimento Especializado,712,48.72,32.54
+Problema com aplicativo,URA,3445,1.84,77.15
+"Alteração de dados cadastrais (vencimento da fatura, telefone, email)",Chatbot,1726,0.58,91.73
+"Alteração de dados cadastrais (vencimento da fatura, telefone, email)",Atendimento Inicial,840,14.01,66.37
+Problema com aplicativo,Atendimento Inicial,4928,13.67,52.12
+Contestação de fatura,Atendimento Especializado,2072,48.57,36.13
+Compra não autorizada,URA,2841,1.85,75.06
+"Alteração de dados cadastrais (vencimento da fatura, telefone, email)",Atendimento Especializado,245,50.83,40.46
+Renegociação de dívida,Atendimento Inicial,4473,13.63,51.49
+Consulta de contrato,Atendimento Especializado,453,49.89,31.17
+Cancelamento de conta,Atendimento Inicial,2130,13.58,53.85
+Transferência de agência,Chatbot,679,0.58,88.11
+Transferência de agência,URA,797,1.85,82.02
+Renegociação de dívida,Atendimento Especializado,2860,48.71,33.44
+Consulta de fatura,Atendimento Inicial,4050,13.72,67.75
+Dúvidas gerais sobre programa de pontos,Chatbot,1374,0.57,87.18
+Cancelamento de conta,Chatbot,1181,0.57,77.01
+Renegociação de dívida,URA,2671,1.86,74.56
+Desbloqueio de cartão,Chatbot,2775,0.57,90.8
+Consulta de contrato,Chatbot,1624,0.58,88.67
+Dúvidas gerais sobre programa de pontos,URA,1588,1.84,82.9
+Transferência de agência,Atendimento Especializado,246,47.31,33.33
+Compra não autorizada,Chatbot,2597,0.57,78.59
+Bloqueio de cartão,Chatbot,4192,0.57,90.65
+Problema com aplicativo,Atendimento Especializado,2787,48.72,32.09
+Cancelamento de conta,Atendimento Especializado,1269,48.35,33.33
+Contestação de fatura,Atendimento Inicial,4022,13.54,57.8
+Consulta de limite,URA,4985,1.84,88.42
+Transferência de agência,Atendimento Inicial,752,13.84,66.67
+Consulta de limite,Chatbot,4589,0.58,90.42
+Contratação de cartão adicional,Atendimento Inicial,1557,13.82,68.47
+Consulta de fatura,Atendimento Especializado,927,49.54,31.0
+Bloqueio de cartão,Atendimento Especializado,869,49.44,31.91
+Consulta de fatura,URA,6118,1.85,88.72
+Desbloqueio de cartão,URA,3131,1.85,87.04
+Desbloqueio de cartão,Atendimento Inicial,2192,13.50,66.36
+Consulta de contrato,Atendimento Inicial,1560,13.55,67.49
+Consulta de contrato,URA,1903,1.86,86.47
+Consulta de fatura,Chatbot,5589,0.57,90.5
+Contestação de fatura,URA,2710,1.84,78.31
+Problema com aplicativo,Chatbot,3173,0.57,82.63
+Dúvidas gerais sobre programa de pontos,Atendimento Especializado,505,47.81,37.16
+"Alteração de dados cadastrais (vencimento da fatura, telefone, email)",URA,1858,1.86,91.14
+Dúvidas gerais sobre programa de pontos,Atendimento Inicial,1512,13.61,64.64
+Bloqueio de cartão,URA,4637,1.84,88.45
+Contratação de cartão adicional,Atendimento Especializado,512,49.50,35.44

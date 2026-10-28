@@ -1,0 +1,5 @@
+﻿tipo_canal,nome_canal,volume,desistencia_ou_falha,csat_pct,espera_media_seg
+humano,Atendimento Inicial,39697,0,60.7,399.49
+autosservico,URA,39533,0,83.99,0.00
+autosservico,Chatbot,35517,0,86.44,0.00
+humano,Atendimento Especializado,17091,0,34.12,815.65

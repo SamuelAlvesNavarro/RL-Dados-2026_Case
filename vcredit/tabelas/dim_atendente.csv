@@ -1,0 +1,29 @@
+﻿id_atendente,nome_atendente,nivel_atendimento,data_admissao,data_desligamento,status_atendente,tempo_empresa
+1,Marcela França,Nível 1,2019-04-18,2025-11-16,Inativo,2404.0
+10,Marcos Torres,Nível 1,2020-01-20,,Ativo,2473.0
+11,Maria Eduarda Freitas,Nível 1,2019-01-30,,Ativo,2828.0
+12,Marilene Nascimento,Nível 1,2021-11-25,,Ativo,1798.0
+13,Daniel Fonseca,Nível 1,2019-06-19,,Ativo,2688.0
+14,Patrícia Barbosa,Nível 2,2019-08-24,,Ativo,2622.0
+15,Josefa Araújo,Nível 2,2018-12-26,,Ativo,2863.0
+16,Eduardo Paiva,Nível 2,2022-04-28,,Ativo,1644.0
+17,Roberta Garcia,Nível 2,2021-12-02,,Ativo,1791.0
+18,Cristiane Loureiro,Nível 2,2019-08-27,,Ativo,2619.0
+19,Daniel Siqueira,Nível 2,2019-12-20,,Ativo,2504.0
+2,Zilda Esteves,Nível 1,2023-09-12,2026-01-24,Inativo,865.0
+20,Valdir Nascimento,Nível 2,2019-05-22,2025-07-05,Inativo,2236.0
+21,Eduardo Lacerda,Nível 1,2025-04-20,,Ativo,556.0
+22,Renato Prado,Nível 2,2025-07-15,,Ativo,470.0
+23,Solange Caldeira,Nível 1,2025-11-24,,Ativo,338.0
+24,Rosangela Assunção,Nível 1,2026-01-26,,Ativo,275.0
+25,Maria Eduarda Miranda,Nível 1,2026-05-30,,Ativo,151.0
+3,William Marques,Nível 1,2019-05-28,2025-04-15,Inativo,2149.0
+4,Solange Silveira,Nível 1,2019-10-07,,Ativo,2578.0
+5,Joaquim Barros,Nível 1,2020-12-06,2026-05-23,Inativo,1994.0
+6,Roberta Assunção,Nível 1,2021-10-29,,Ativo,1825.0
+7,Luiza Galvão,Nível 1,2022-04-24,,Ativo,1648.0
+8,Josefa Brito,Nível 1,2023-01-25,,Ativo,1372.0
+9,Jaqueline Campos,Nível 1,2019-04-19,,Ativo,2749.0
+999,Desconhecido,Desconhecido,,,Desconhecido,
+99,Desconhecido,Desconhecido,,,Desconhecido,
+0,Desconhecido,Desconhecido,,,Desconhecido,
