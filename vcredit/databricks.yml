@@ -1,0 +1,10 @@
+bundle:
+  name: vcredit_medalhao
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    default: true
+    mode: development
