@@ -3,6 +3,16 @@ resources:
     execução_vcredit_4_em_4_horas:
       name: Execução Vcredit (4 em 4 horas)
       tasks:
+        - task_key: landing_to_bronze
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/Landing_to_Bronze.ipynb
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+          
         - task_key: bronze_to_silver
           depends_on:
             - task_key: landing_to_bronze
@@ -14,26 +24,7 @@ resources:
           run_if: ALL_SUCCESS
           timeout_seconds: 0
           webhook_notifications: {}
-        - task_key: analise_motivos_canais
-          depends_on:
-            - task_key: bronze_to_silver
-          disabled: false
-          email_notifications: {}
-          notebook_task:
-            notebook_path: ../src/Analise_dim_Motivos_Canais_Samuel.ipynb
-            source: WORKSPACE
-          run_if: ALL_SUCCESS
-          timeout_seconds: 0
-          webhook_notifications: {}
-        - task_key: landing_to_bronze
-          disabled: false
-          email_notifications: {}
-          notebook_task:
-            notebook_path: ../src/Landing_to_Bronze.ipynb
-            source: WORKSPACE
-          run_if: ALL_SUCCESS
-          timeout_seconds: 0
-          webhook_notifications: {}
+          
         - task_key: silver_to_gold
           depends_on:
             - task_key: bronze_to_silver
@@ -45,6 +36,19 @@ resources:
           run_if: ALL_SUCCESS
           timeout_seconds: 0
           webhook_notifications: {}
+
+        - task_key: analises_gold_views
+          depends_on:
+            - task_key: silver_to_gold
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/Analises_Gold.ipynb
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+          
       email_notifications:
         no_alert_for_skipped_runs: false
       max_concurrent_runs: 1
