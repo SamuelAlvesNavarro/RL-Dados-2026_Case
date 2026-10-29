@@ -233,31 +233,25 @@ métricas antes de usá-las em indicadores.
 
 ## Análises Gold
 
-O notebook `Analises_Gold` combina a fato e as dimensões e gera tabelas
-analíticas. Nomes identificados nos notebooks incluem:
+O notebook `Analises_Gold` combina a fato e as dimensões e gera tabelas analíticas. Nomes identificados nos notebooks incluem:
 
-  -----------------------------------------------------------------------
-  Tabela analítica                    Objetivo
-  ----------------------------------- -----------------------------------
-  `vw_chamados_detalhado`             Base detalhada enriquecida pelas
-                                      dimensões
+| Tabela analítica | Objetivo |
+|---|---|
+| `vw_chamados_detalhado` | Base detalhada enriquecida pelas dimensões |
+| `vw_desempenho_canal` | Volume e indicadores por canal |
+| `vw_desempenho_atendente` | Indicadores por nível/faixa de experiência |
+| `vw_demanda_dia_semana` | Demanda por dia da semana |
+| `vw_autosservico_faixa_etaria` | Volume e resolução por canal/faixa etária |
+| `vw_qualidade_dados` | Indicadores agregados de qualidade |
+| `vw_fluxo_cliente_canais` | Eventos e transições por cliente, se o notebook de fluxo tiver sido executado |
 
-  `vw_desempenho_canal`               Volume e indicadores por canal
+Para conferir os objetos atualmente existentes:
 
-  `vw_desempenho_atendente`           Indicadores por nível/faixa de
-                                      experiência
+```sql
+SHOW TABLES IN vcredit.gold;
+```
 
-  `vw_demanda_dia_semana`             Demanda por dia da semana
-
-  `vw_autosservico_faixa_etaria`      Volume e resolução por canal/faixa
-                                      etária
-
-  `vw_qualidade_dados`                Indicadores agregados de qualidade
-
-  `vw_fluxo_cliente_canais`           Eventos e transições por cliente,
-                                      se o notebook de fluxo tiver sido
-                                      executado
-  -----------------------------------------------------------------------
+Os nomes com prefixo `vw_` podem ter sido gravados com `saveAsTable`; nesse caso, são tabelas Delta nomeadas como views, não necessariamente views SQL. Confira os metadados do catálogo.
 
 Para conferir os objetos atualmente existentes:
 
