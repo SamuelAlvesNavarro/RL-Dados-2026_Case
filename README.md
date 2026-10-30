@@ -17,6 +17,7 @@ dimensional e disponibiliza tabelas analíticas para relatórios.
 -   [Fluxo de clientes](#fluxo-de-clientes)
 -   [Exportação CSV](#exportação-csv)
 -   [Execução e agendamento](#execução-e-agendamento)
+-   [Entregáveis](#entregáveis)
 
 ## Objetivos
 
@@ -370,5 +371,10 @@ trigger:
     interval: 4
     unit: HOURS
 ```
+
+## Entregáveis
+
+- **Dashboard interativo (Power BI):** [Acessar dashboard](https://app.powerbi.com/groups/me/reports/9d97add4-ff1b-4456-a559-c966a1389834?ctid=7e93e286-b29a-4454-a41a-e8419ec9deb5&pbi_source=linkShare)
+- **Apresentação do projeto:** [Acessar apresentação](https://docs.google.com/presentation/d/1ymQj6jx93L-upPGVLHXXW3fob74e8DOc0ofcZHJ_0ww/edit?usp=sharing)
 
 ------------------------------------------------------------------------
